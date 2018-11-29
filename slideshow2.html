@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset ="utf-8">
+	<meta name = "viewport" content = "width=device-width, initial scale-1">
+	<title>APOD Slideshow and Image Gallery</title>
+</head>
+<body>
+	<div id='app'>
+				Would you like to see one image or many? &nbsp; 
+					<input type = "radio" id = "picChoose" name ="howMany" value = "one" onclick="oneImage()">One &nbsp;
+		
+					<input type = "radio" id = "picChoose2" name ="howMany" value = "many" onclick="manyImage()">Many<br/>
+<!--				if One is selected, hide all options for multiple pictures. if Many is selected hide options for displaying only one image-->
+		
+<!--		begin One-->
+				Would you like to see today's image or an image from a specific day &nbsp; 
+					<input type = "radio" id = "today" name = "dates" value = "today" onclick = "hideSpecific()">Today &nbsp;
+<!--		if Today, proceed to image display screen-->
+		
+					<input type = "radio" id = "specific" name = "dates" value = "today" onclick = "hideToday()">Specific Day<br/>	
+<!--		if Specific, display input for selecting date, then proceed to image display-->
+		
+				What day's image would you like to see?&nbsp;<input type="date" id="day" name="today"
+       	min="1995-06-16" onclick = "dateFunc()"><br/>
+<!--		end One-->
+		
+<!--		begin Many-->
+				<p>Would you like to create a randomly created slideshow or a slideshow made from a range of dated images? &nbsp; <input type = "radio" id = "slideYes" name = "slide" value = "yes" onclick = "random()">Random&nbsp;
+<!--					if Random, display input box for selecting amount of images to display -->
+					
+			
+				<input type = "radio" id = "slideNo" name = "slide" value = "no" onclick ="range()">Range &nbsp;<br/></p>
+<!--		if Range, display input boxes for start and end dates and hide random input box-->
+		<div id = "slideDisp">
+		<span id = "randomSelect" style = "display:none;">How many images would you like to see? &nbsp; <input type = "number" name = "amount" id = "count" min = "1" max = "100"></span><br/>
+		
+				<div id = "rangeSelect" style = "display:none;">Enter start date for image slideshow: &nbsp; <input type="date" id="begin" name="begin"
+       	min="1995-06-16"><br/>
+				Enter end date for image slideshow: &nbsp; <input type="date" id="end" name="end" min="1995-06-16"><br/></div>
+		</div>
+		
+        <button id = "rev" onclick="query()" onmousedown = "store()" type = "button">Click Here</button>
+    </div>
+	
+	<script>
+
+	let count;
+	let begin;
+	let end;
+	let rangeSelect = document.getElementById('rangeSelect');
+	let randomSelect = document.getElementById('randomSelect');
+	let slideDisp = document.getElementById('slideDisp');
+		
+	function store(){
+		count = document.getElementById('count').value
+		begin = document.getElementById('begin').value
+		end = document.getElementById('end').value
+	}
+		function random(){
+//			randomSelect.style.display = 'block';
+//			rangeSelect.style.display = 'none'
+			slideDisp.innerHTML = ''
+			slideDisp.innerHTML += randomSelect.innerHTML;
+		}
+			
+		function range(){
+//			rangeSelect.style.display = 'block';
+//			randomSelect.style.display = 'none';
+			slideDisp.innerHTML = '';
+			slideDisp.innerHTML += rangeSelect.innerHTML
+		}
+		
+		function dateFunc(){
+			
+		}
+	</script>
+	<script src='js/scripts2.js'></script>
+
+</body>
+</html>
