@@ -122,24 +122,7 @@ function stopAutoPlay(){
 	autoPlayBtn.style.cssText+= 'background-color:#ADB; color:#586;';
 }
 
-//let obj1 =obj;
-//let res = []
-//for(let i = 0; i<obj1.length; i++){
-//	res.push(obj1[i]);
-//}
-//	
-//let arc = {}
-//let num = 0
-//for(let i = 0; i<res.length; i++){
-//	if(res[i].media_type == 'image'){
-//		arc[num] = res[i]
-//		num++
-//    }
-//}
-//	
-//	for(let i =0; i<Object.keys(arc).length; i++){
-//		console.log(arc[i].title)
-//	}
+
 
 bigPic = new Image(); //creates image object for bigPic
 bigPic.style.cssText='width:100%;height:auto;margin-bottom:10px;'
