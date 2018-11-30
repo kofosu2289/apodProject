@@ -17,23 +17,23 @@
 				<span id = "tOrS" style = "display:none;">Would you like to see today's image or an image from a specific day &nbsp; 
 					<input type = "radio" id = "today" name = "dates" value = "today" onclick = "hideSpecific()">Today &nbsp;
 <!--		if Today, proceed to image display screen-->
-		
+				
 					<input type = "radio" id = "specific" name = "dates" value = "today" onclick = "showSpecific()">Specific Day<br/></span>
 <!--		if Specific, display input for selecting date, then proceed to image display-->
-			<div id = 'chooseSpec'>
-				<span id = "which">What day's image would you like to see?&nbsp;<input type="date" id="day" name="today"
-																																																			 min="1995-06-16" onclick = "dateFunc()"><br/></span></div>
+			<div id = 'chooseSpec' style = >
+				<span id = "which" style = "display: none;">What day's image would you like to see?&nbsp;<input type="date" id="day" name="today"
+																																																			 min="1995-06-16" onchange = "dateFunc()"><br/></span></div>
 <!--		end One-->
 		
 <!--		begin Many-->
-				<p id ="randOrrange" style = "display:none">Would you like to create a randomly created slideshow or a slideshow made from a range of dated images? &nbsp; <input type = "radio" id = "slideYes" name = "slide" value = "yes" onclick = "random()">Random&nbsp;
+				<p id ="randOrrange" style = "display:none">Would you like to create a randomly created slideshow or a slideshow made from a range of dated images? &nbsp; <input type = "radio" id = "slideYes" name = "slide" onclick = "random()">Random&nbsp;
 <!--					if Random, display input box for selecting amount of images to display -->
 					
 			
-				<input type = "radio" id = "slideNo" name = "slide" value = "no" onclick ="range()">Range &nbsp;<br/></p>
+				<input type = "radio" id = "slideNo" name = "slide" onclick ="range()">Range &nbsp;</p><br/>
 <!--		if Range, display input boxes for start and end dates and hide random input box-->
 		<div id = "slideDisp">
-		<span id = "randomSelect" style = "display:none;">How many images would you like to see? &nbsp; <input type = "number" name = "amount" id = "count" min = "1" max = "100"></span><br/>
+		<p id = "randomSelect" style = "display:none;">How many images would you like to see? &nbsp; <input type = "number" name = "amount" id = "count" min = "1" max = "100"></p><br/>
 		
 				<div id = "rangeSelect" style = "display:none;">Enter start date for image slideshow: &nbsp; <input type="date" id="begin" name="begin"
        	min="1995-06-16"><br/>
@@ -49,6 +49,7 @@
 	let count;
 	let begin;
 	let end;
+	let date;
 	let rangeSelect = document.getElementById('rangeSelect');
 	let randomSelect = document.getElementById('randomSelect');
 	let slideDisp = document.getElementById('slideDisp');
@@ -75,26 +76,38 @@
 	}
 		
 	function showSpecific(){
-		
+		rest.innerHTML = '';
+		oneImage();
+		rest.innerHTML += which.innerHTML;
 		
 	}
 		
 	function dateFunc(){
-			
+			date = document.getElementById('day').value;
+			console.log(date)
 		}
 		
 	function random(){
 //			randomSelect.style.display = 'block';
 //			rangeSelect.style.display = 'none'
-			slideDisp.innerHTML = ''
-			slideDisp.innerHTML += randomSelect.innerHTML;
+			slideDisp.innerHTML = '';
+			
+			manyImage();
+		rest.innerHTML += '<br/>' + randomSelect.innerHTML;
+		
+		
+//			randomSelect.style.display = 'block';
 		}
 			
 	function range(){
 //			rangeSelect.style.display = 'block';
 //			randomSelect.style.display = 'none';
-			slideDisp.innerHTML = '';
-			slideDisp.innerHTML += rangeSelect.innerHTML
+			
+//			manyImage();
+//			rangeSelect.style.display = 'block';
+		slideDisp.innerHTML = ''
+		manyImage();
+		rest.innerHTML += '<br/>' + rangeSelect.innerHTML;
 		}
 		
 	function store(){
