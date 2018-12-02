@@ -8,7 +8,7 @@
 <body>
 	<div id='app'>
 				Would you like to see one image or many? &nbsp; 
-					<input type = "radio" id = "picChoose" name ="howMany" value = "one" onclick="oneImage()">One &nbsp;
+		<input type = "radio" id = "picChoose" name ="howMany" value = "one" onclick="oneImage()">One&nbsp;
 		
 					<input type = "radio" id = "picChoose2" name ="howMany" value = "many" onclick="manyImage()">Many<br/>
 <!--				if One is selected, hide all options for multiple pictures. if Many is selected hide options for displaying only one image-->
@@ -58,11 +58,13 @@
 	let randOrrange = document.getElementById('randOrrange');
 	let chooseSpec = document.getElementById('chooseSpec');
 	let which = document.getElementById('which');
+	//let picChoose = document.getElementById('color');
 		
 	function oneImage(){
 		rest.innerHTML = ''
 		rest.style.display = 'block';
 		rest.innerHTML += tOrS.innerHTML;
+		//picChoose.style.borderStyle = 'solid';
 	}
 		
 	function manyImage(){
@@ -72,7 +74,8 @@
 	}
 		
 	function hideSpecific(){
-		
+		rest.innerHTML = '';
+		oneImage();
 	}
 		
 	function showSpecific(){
