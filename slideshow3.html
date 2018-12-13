@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset = "utf-8">
+		<meta name = "viewport" content = "width=device-width, initial-scale=1">
+		<title>FIX LATER</title>
+	</head>
+	<body>
+		<div id = "app">
+			Would you like to see one image or many? &nbsp;
+			<span id = "one" onclick = "oneImage()">One</span>&nbsp; / &nbsp;
+			
+			<span id = "many" onclick = "manyImage()">Many</span><br/>
+			
+			<span id = "tOrS" style = "display: none">Would you like to see today's image or an image from a specific date? &nbsp;<span id = "today" onclick  ="today()">Today</span>&nbsp;/&nbsp;<span id = "specific" onclick = "specific()">Specific&nbsp;</span>
+				<br/></span>
+																																								
+			<span id = "tm" style="display: none">Click the button to see your image!</span>
+			
+			<span id = "specDate" style="display: none">What day's image would you like to see? &nbsp; <input type="date" id="day" name="today" min = "1995-06-16"></span>
+			
+			<span id = "question" style="display: none">Would you like to create a randomly generated slideshow or a slideshow made from a range of dated images?&nbsp;
+				<span id = "random" onclick = "showRandom()">Random</span>&nbsp;/&nbsp;<span id = "range" onclick = "showRange()">Range</span>
+			</span>
+			
+			<span id = "count" style="display: none">How many images would you like to see? (1-100) &nbsp; <input type = "number" name = "amount" id = "counter" min = "1" max = "100"></span>
+			
+			<span id = "dates" style="display: none">Enter start date for your slideshow &nbsp; <input type="date" id="begin" name="begin"
+       	min="1995-06-16"><br/>
+			Enter end date for you slideshow &nbsp; <input type="date" id="end" name="end" min="1995-06-16"></span>
+			
+			<button onmousedown = "store()">Click Here</button>
+		</div>
+		
+		<script>
+			let one = document.getElementById('one');
+			let many = document.getElementById('many');
+			let tOrS = document.getElementById('tOrS');
+			let T = document.getElementById('today');
+			let S = document.getElementById('specific');
+			let tm = document.getElementById('tm');
+			let specDate = document.getElementById('specDate');
+			let question = document.getElementById('question');
+			let random = document.getElementById('random');
+			let range = document.getElementById('range');
+			let count = document.getElementById('count');
+			let dates = document.getElementById('dates');
+//			const oneImage = () => {
+//				one.style.borderStyle = 'solid';
+//				many.style.borderStyle = 'none';
+//			} 
+			
+			function oneImage()  {
+				one.style.borderStyle = 'solid';
+				many.style.borderStyle = 'none';
+				tOrS.style.display = 'block';
+				question.style.display = 'none';
+				tm.style.display = 'none';
+				specDate.style.display = 'none';
+				T.style.borderStyle = 'none';
+				S.style.borderStyle = 'none';
+				random.style.borderStyle = 'none';
+				range.style.borderStyle = 'none';
+				count.style.display = 'none';
+				dates.style.display = 'none'
+			}
+			
+			function manyImage(){
+				one.style.borderStyle = 'none';
+				many.style.borderStyle = 'solid';
+				tOrS.style.display = 'none';
+				question.style.display = 'block';
+				tm.style.display = 'none';
+				specDate.style.display = 'none';
+				T.style.borderStyle = 'none';
+				S.style.borderStyle = 'none';
+				random.style.borderStyle = 'none';
+				range.style.borderStyle = 'none';
+				count.style.display = 'none';
+				dates.style.display = 'none'
+			}
+			
+			function today(){
+				T.style.borderStyle = 'solid';
+				S.style.borderStyle = 'none';
+				tm.style.display = 'block';
+				specDate.style.display = 'none';
+				random.style.borderStyle = 'none';
+				range.style.borderStyle = 'none';
+				count.style.display = 'none';
+				dates.style.display = 'none'
+			}
+			
+			function specific(){
+				T.style.borderStyle = 'none';
+				S.style.borderStyle = 'solid';
+				tm.style.display = 'none';
+				specDate.style.display = 'block';
+				count.style.display = 'none';
+				dates.style.display = 'none'
+			}
+			
+			function showRandom(){
+				random.style.borderStyle = 'solid';
+				range.style.borderStyle = 'none';
+				tm.style.display = 'none';
+				specDate.style.display = 'none';
+				count.style.display = 'block';
+				dates.style.display = 'none'
+			}
+			
+			function showRange(){
+				random.style.borderStyle = 'none';
+				range.style.borderStyle = 'solid';
+				tm.style.display = 'none';
+				specDate.style.display = 'none';
+				dates.style.display = 'block';
+				count.style.display = 'none';
+			}
+			
+			let day;
+			
+			function store(){
+				day = document.getElementById('day').value;
+				console.log(day);
+			}
+		
+			
+		</script>
+	</body>
+</html>
